@@ -1,9 +1,18 @@
 body {
     background: rgb(66, 181, 6);
     background: radial-gradient(circle, rgba(66, 181, 6, 0.9391106784510679) 0%, rgba(0, 236, 158, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    font-family: 'Roboto', sans-serif;
 }
 
 .title {
     color: #000000;
     text-shadow: -3px 3px #ffffff, -3px -3px #ffffff, 3px -3px #ffffff, 3px 3px #f3f3f2, 6px 6px #6ac7c2;
+}
+.card{
+    max-width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+}
+input.input {
+    height: 3rem;
 }
