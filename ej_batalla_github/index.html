@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Batalla GitHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+      <div class="container p-2">
+          <h1 class="text-center fw-bold">Bienvenido a la batalla de GitHub</h1>
+          <div class="row">
+              <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label fw-bold">Usuario de GitHub</label>
+                <div class="input-group mb-3">
+                    <input id="userOne" type="text" class="form-control" placeholder="Usuario de GitHub" aria-label="Usuario de GitHub" aria-describedby="button-addon2">
+                    <button class="btn btn-primary" type="button" id="btnGo1">Go!</button>
+                </div>
+                <div class="card my-4">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-center">Datos del usuario</h5>
+                        <p class="card-text fst-italic fw-bold">Repositorios públicos: <span id="nRepos1" class="badge bg-secondary text-end">0</span></p>
+                        <p class="card-text fst-italic fw-bold">Seguidores: <span id="nFollowers1" class="badge bg-secondary text-end">0</span></p>
+                        <p class="card-text fst-italic fw-bold">Siguiendo: <span id="nFollowing1" class="badge bg-secondary text-end">0</span></p>
+                        <p class="card-text fst-italic fw-bold">Public Gist: <span id="nPublicGist1" class="badge bg-secondary text-end">0</span></p>
+                        <p class="card-text fst-italic fw-bold">Puntuación: <span id="score1" class="badge bg-secondary text-end">0</span></p>
+                    </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label fw-bold">Usuario de GitHub</label>
+                <div class="input-group mb-3">
+                    <input id="userTwo" type="text" class="form-control" placeholder="Usuario de GitHub" aria-label="Usuario de GitHub" aria-describedby="button-addon2">
+                    <button class="btn btn-primary" type="button" id="btnGo2">Go!</button>
+                </div>
+                <div class="card my-4">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-center">Datos del usuario</h5>
+                        <p class="card-text fst-italic fw-bold">Repositorios públicos: <span id="nRepos2" class="badge bg-secondary text-end">0</span></p>
+                        <p class="card-text fst-italic fw-bold">Seguidores: <span id="nFollowers2" class="badge bg-secondary text-end">0</span></p>
+                        <p class="card-text fst-italic fw-bold">Siguiendo: <span id="nFollowing2" class="badge bg-secondary text-end">0</span></p>
+                        <p class="card-text fst-italic fw-bold">Public Gist: <span id="nPublicGist2" class="badge bg-secondary text-end">0</span></p>
+                        <p class="card-text fst-italic fw-bold">Puntuación: <span id="score2" class="badge bg-secondary text-end">0</span></p>
+                    </div>
+                </div>
+              </div>
+              <div class="col-12 text-center">
+                  <button class="btn btn-primary fw-bold text-uppercase" disabled>Batalla!</button>
+              </div>
+          </div>
+      </div>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
