@@ -74,10 +74,19 @@ function changeStateBtnEdit(inputItem, btn_edit) {
  */
 function checkInput() {
     if (input.value.length === 0) {
-        alert("Ingrese un valor");
+        Swal.fire({
+            title: '¡Ingrese un valor!',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        });
     } else {
         const item = new Item(input.value.trim());
         saveTaskLocalStorage(input);
+        Swal.fire({
+            title: '¡Tarea agregada!',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        });
         input.value = "";
     }
 }
@@ -125,16 +134,33 @@ function editTaskLocalStorage(inputItem) {
  * @param {*} divItem div contenedor de la tarea a eliminar
  */
 function deleteTaskLocalStorage(inputItem, divItem) {
-    let tasks = JSON.parse(localStorage.getItem('tasks'));
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i] === inputItem.value.trim()) {
-            tasks.splice(i, 1);
+    Swal.fire({
+        title: '¿Está seguro de eliminar esta tarea?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: 'btn btn-secondary',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let tasks = JSON.parse(localStorage.getItem('tasks'));
+            for (let i = 0; i < tasks.length; i++) {
+                if (tasks[i] === inputItem.value.trim()) {
+                    tasks.splice(i, 1);
+                }
+            }
+            if (divItem.classList.contains('item')) {
+                divItem.remove();
+            }
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            Swal.fire(
+                '¡Eliminado!',
+                'La tarea ha sido eliminada',
+                'success'
+            )
         }
-    }
-    if (divItem.classList.contains('item')) {
-        divItem.remove();
-    }
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    })
 }
 
 // Precarga de las tareas dentro del localStorage
