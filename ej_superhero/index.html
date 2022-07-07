@@ -19,44 +19,20 @@
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <!-- <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown link
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul> -->
-            </div>
         </div>
     </nav>
     <div class="container">
         <div class="row d-flex justify-content-center py-2">
             <div class="col-8 d-flex justify-content-center">
-                <div class="card w-50 shadow-lg text-center border border-4 border-white">
-                    <img width="150" height="320"
+                <div class="card w-30 shadow-lg text-center border border-4 border-white">
+                    <img width="120" height="260"
                         src="https://thumbs.dreamstime.com/b/awesome-super-hero-logo-template-ready-to-use-144883183.jpg"
                         class="card-img-top" alt="Logo SuperHero">
                     <div class="card-body">
                         <h5 class="card-title text-uppercase fw-bold py-2">Encuentra tu superhéroe</h5>
                         <div class="input-group mb-3 shadow">
                             <input type="text" class="form-control" placeholder="ID a buscar" aria-label="ID a buscar"
-                                id="inputSearch" aria-describedby="btnSearch" required pattern="[0-9]+">
+                                id="inputSearch" aria-describedby="btnSearch" required>
                             <button id="btnSearch" class="btn btn-primary" type="button">Buscar <i
                                     class="bi bi-search m-2"></i></button>
                         </div>
@@ -65,44 +41,42 @@
             </div>
         </div>
         <div class="row py-2">
-                <h2 class="text-center fw-bold text-uppercase text-white">
-                    Superhéroe encontrado
-                </h2>
-                <div class="col-6">
-                    <div class="card mb-3">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img id="imgSuperhero"
-                                    src="https://thumbs.dreamstime.com/b/awesome-super-hero-logo-template-ready-to-use-144883183.jpg"
-                                    class="img-fluid rounded-start" alt="Imagen de superhéroe">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold text-uppercase" id="nameSuperhero"></h5>
-                                    <p class="card-text" id="connectionsSuperhero"></p>
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="flush-headingOne">
-                                                <button class="accordion-button collapsed border border-secondary"
-                                                    type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                                    aria-controls="flush-collapseOne">
-                                                    Más detalles
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                                aria-labelledby="flush-headingOne"
-                                                data-bs-parent="#accordionFlushExample">
-                                                <div class="accordion-body">
-                                                    <ul class="list-group">
-                                                        <li class="list-group-item" id="publisherSuperhero"></li>
-                                                        <li class="list-group-item" id="worksSuperhero"></li>
-                                                        <li class="list-group-item" id="firstApearanceSuperhero"></li>
-                                                        <li class="list-group-item" id="heightSuperhero"></li>
-                                                        <li class="list-group-item" id="weightSuperhero"></li>
-                                                        <li class="list-group-item" id="aliasesSuperhero"></li>
-                                                    </ul>
-                                                </div>
+            <h2 class="text-center fw-bold text-uppercase text-white py-4">
+                Superhéroe encontrado
+            </h2>
+            <div class="col-6" id="containerCard">
+                <div class="card mb-3 d-none" id="cardInfo">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img id="imgSuperhero"
+                                src="https://thumbs.dreamstime.com/b/awesome-super-hero-logo-template-ready-to-use-144883183.jpg"
+                                class="img-fluid rounded-start" alt="Imagen de superhéroe">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold text-uppercase" id="nameSuperhero"></h5>
+                                <p class="card-text" id="connectionsSuperhero"></p>
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed border border-secondary"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                                aria-controls="flush-collapseOne">
+                                                Más detalles
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <ul class="list-group">
+                                                    <li class="list-group-item" id="publisherSuperhero"></li>
+                                                    <li class="list-group-item" id="worksSuperhero"></li>
+                                                    <li class="list-group-item" id="firstApearanceSuperhero"></li>
+                                                    <li class="list-group-item" id="heightSuperhero"></li>
+                                                    <li class="list-group-item" id="weightSuperhero"></li>
+                                                    <li class="list-group-item" id="aliasesSuperhero"></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -111,15 +85,15 @@
                         </div>
                     </div>
                 </div>
-                <div id="chartContainer" class="col-6">
+            </div>
+            <div id="chartContainer" class="col-6">
 
-                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
-    <script src="js/chart.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     <script src="js/key.js"></script>
