@@ -20,6 +20,7 @@ class Item {
         inputItem.setAttribute('type', 'text');
         inputItem.setAttribute('disabled', true);
         inputItem.classList.add('item-input', 'form-control', 'fst-italic');
+        inputItem.setAttribute('onfocus', 'this.oldvalue = this.value');
         inputItem.value = newTask;
         divItem.appendChild(inputItem);
         // creando los botones
@@ -64,6 +65,7 @@ function changeStateBtnEdit(inputItem, btn_edit) {
     } else {
         inputItem.disabled = true;
         btn_edit.innerHTML = `<i class="bi bi-lock"></i>`;
+        editTaskLocalStorage(inputItem);
     }
 }
 
@@ -75,7 +77,7 @@ function checkInput() {
         alert("Ingrese un valor");
     } else {
         const item = new Item(input.value.trim());
-        saveTaskLocalStorage();
+        saveTaskLocalStorage(input);
         input.value = "";
     }
 }
@@ -84,31 +86,43 @@ function checkInput() {
  * Función para mostrar las tareas guardadas en el localStorage
  */
 function getTasks() {
-    let tasks = JSON.parse(localStorage.getItem('tasks'));
-    for (let task of tasks) {
+    arrTasks = JSON.parse(localStorage.getItem('tasks'));
+    for (let task of arrTasks) {
         const item = new Item(task);
     }
 }
 
 /**
- * Función para guardar o actualizar los datos en el localStorage
+ * Función para guardar los datos en el localStorage
  */
 function saveTaskLocalStorage() {
     if (localStorage.getItem('tasks') === null) {
-        let arrTasks = [];
         arrTasks.push(input.value.trim());
         localStorage.setItem('tasks', JSON.stringify(arrTasks));
     } else {
-        let tasks = JSON.parse(localStorage.getItem('tasks'));
-        tasks.push(input.value.trim());
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+        arrTasks = JSON.parse(localStorage.getItem('tasks'));
+        arrTasks.push(input.value.trim());
+        localStorage.setItem('tasks', JSON.stringify(arrTasks));
     }
 }
 
 /**
+ * Función para editar las tareas especificas en el localStorage
+ * @param {*} inputItem tarea a editar
+ */
+function editTaskLocalStorage(inputItem) {
+    for (let i = 0; i < arrTasks.length; i++) {
+        if (arrTasks[i] === inputItem.oldvalue) {
+            arrTasks[i] = inputItem.value.trim();
+        }
+    }
+    localStorage.setItem('tasks', JSON.stringify(arrTasks));
+}
+
+/**
  * Función para eliminar un elemento dentro de localStorage
- * @param {*} inputItem valor del input
- * @param {*} divItem div contenedor del input
+ * @param {*} inputItem tarea a eliminar
+ * @param {*} divItem div contenedor de la tarea a eliminar
  */
 function deleteTaskLocalStorage(inputItem, divItem) {
     let tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -123,5 +137,5 @@ function deleteTaskLocalStorage(inputItem, divItem) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Inicio el sitio con las tareas dentro del localStorage
+// Precarga de las tareas dentro del localStorage
 getTasks();
