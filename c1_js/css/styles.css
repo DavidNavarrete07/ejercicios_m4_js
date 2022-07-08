@@ -16,3 +16,8 @@ body {
 input.input {
     height: 3rem;
 }
+input.input:focus, input.item-input:focus{
+    box-shadow: none;
+    border: 1px solid rgb(135, 135, 136);
+    outline: none;
+}
