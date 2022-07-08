@@ -63,6 +63,11 @@ class Superhero {
         this.power = '';
         this.combat = '';
     }
+    /**
+     * Método para traer los datos de la API SuperHero a través del ID
+     * Se necesita del token (keyAPI) para hacer la petición
+     * @param {*} superheroID ID del superhéroe
+     */
     async getDataSuperHero(superheroID) {
         const url = `https://superheroapi.com/api.php/${keyAPI}/${superheroID}`;
         try {
@@ -85,11 +90,13 @@ class Superhero {
             this.combat = superhero.powerstats.combat;
             this.createCardInfo();
             this.generateGraphPowerstatsSuperhero();
-
         } catch (error) {
             console.log("Hubo un error: " + error);
         }
     }
+    /**
+     * Método para crear una card con la info del superhéroe
+     */
     createCardInfo() {
         const card = document.createElement("div");
         card.classList.add('card', 'shadow-lg', 'd-block', 'mb-3');
@@ -136,6 +143,9 @@ class Superhero {
         </div>`;
         containerCard.appendChild(card);
     }
+    /**
+     * Método para generar el gráfico de torta en base a las powerstats del superhéroe
+     */
     generateGraphPowerstatsSuperhero() {
         let options = {
             title: {
